@@ -20,7 +20,7 @@ export class HomePageService {
 
   //Getting the Products from backend API
   getProducts():Observable<IProduct[]>{
-    let tempVar = this.http.get<IProduct[]>('https://localhost:5001/api/home/getproducts')
+    let tempVar = this.http.get<IProduct[]>('https://quickkart-webservice-siddhant.azurewebsites.net/api/home/getproducts')
     console.log(tempVar)
     return tempVar
   }
@@ -29,7 +29,7 @@ export class HomePageService {
   
     console.log(emailID)
 
-    let tempVar = this.http.get<boolean>('https://localhost:5001/api/customer/AddNewSubscriber?emailID='+emailID)
+    let tempVar = this.http.get<boolean>('https://quickkart-webservice-siddhant.azurewebsites.net/api/customer/AddNewSubscriber?emailID='+emailID)
     console.log(tempVar)
     return tempVar
   }
@@ -51,7 +51,7 @@ export class HomePageService {
    
     formData.append('image', image);
     console.log(formData)
-    let result=this.http.post<Response>('https://localhost:5001/api/admin/upload',formData).pipe(catchError(this.errorHandler))
+    let result=this.http.post<Response>('https://quickkart-webservice-siddhant.azurewebsites.net/api/admin/upload',formData).pipe(catchError(this.errorHandler))
     console.log(result)
     return result
   }
